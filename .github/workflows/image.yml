@@ -24,4 +24,4 @@ jobs:
           IMAGE_TAG: ${{ github.ref_name }}
         run: |
           sed -i '4i <meta name="version" content="${{ github.ref_name }}" />' public/index.html
-          cat index.html
+          cat public/index.html
