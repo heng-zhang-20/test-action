@@ -1,0 +1,27 @@
+name: Insert meta into index.html
+
+on:
+  workflow_dispatch:
+
+  push:
+    tags:
+      - "**"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Insert meta
+        env:
+          IMAGE_TAG: ${{ github.ref_name }}
+        run: |
+          sed -i '4i <meta name="version" content="$IMAGE_TAG" />' index.html
+          cat index.html
