@@ -26,7 +26,7 @@ jobs:
         run: |
           sed -i '1i HI />' public/index.html
           git config --global user.email "heng.zhang@cloudfall.cn" && git config --global user.name "GitHub Action"
-          git add . && git commit -m "update package.json" && git push origin main
+          git add . && git commit -m "update package.json" && git push origin HEAD:main
 
       - name: Insert meta
         env:
