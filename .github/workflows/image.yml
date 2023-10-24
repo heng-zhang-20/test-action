@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+
+      - name: Update index
         run: |
           sed -i '1i HI />' public/index.html
           git config --global user.email "heng.zhang@cloudfall.cn" && git config --global user.name "GitHub Action"
