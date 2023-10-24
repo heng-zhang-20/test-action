@@ -26,7 +26,13 @@ jobs:
         run: |
           sed -i '1i HI />' public/index.html
           git config --global user.email "heng.zhang@cloudfall.cn" && git config --global user.name "GitHub Action"
-          git add . && git commit -m "update package.json" && git push
+          git add . && git commit -m "update package.json"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
+          branch: ${{ github.ref }}
         
 
       - name: Insert meta
