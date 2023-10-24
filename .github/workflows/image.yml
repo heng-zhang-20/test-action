@@ -19,14 +19,13 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
         with:
-          # ref: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Update index
         run: |
           sed -i '1i HI />' public/index.html
-          git config --global user.name "GitHub Action"
-          git config --global user.email "heng.zhang@cloudfall.cn"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "Automated report"
           git push origin HEAD:main
 
