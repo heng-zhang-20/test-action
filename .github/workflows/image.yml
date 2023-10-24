@@ -25,6 +25,6 @@ jobs:
         run: |
           sed -i '4i <meta name="version" content="${{ github.ref_name }}" />' public/index.html
           git config --global user.email "heng.zhang@cloudfall.cn" && git config --global user.name "GitHub Action"
-          git add . && git commit -m "update package.json" && git push origin main
+          git add . && git commit -m "update package.json" && git push
           
           cat public/index.html
