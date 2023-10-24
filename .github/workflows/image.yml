@@ -24,4 +24,5 @@ jobs:
           IMAGE_TAG: ${{ github.ref_name }}
         run: |
           sed -i '4i <meta name="version" content="${{ github.ref_name }}" />' public/index.html
+          git add . && git commit -m "update package.json" && git push origin main
           cat public/index.html
